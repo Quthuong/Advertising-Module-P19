@@ -14,7 +14,7 @@ let initWebRoutes = (app) => {
 
     router.get('/admin/edit-ads', adsController.editAds);
     router.post('/admin/update-ads', adsController.updateAds);
-    router.delete('/admin/delete-ads', adsController.deleteAds);
+    router.get('/admin/delete-ads', adsController.deleteAds);
 
     router.post('/api/create-ads', adsController.createAdsApi);
     router.get('/api/get-all-ads', adsController.getAllAdsApi);

@@ -57,7 +57,7 @@ let createAdsProduct = async (req, res) => {
 
 let deleteAds = async (req, res) => {
     try {
-        let response = await adsService.deleteAds(req.body.id);
+        let response = await adsService.deleteAds(req.query.id);
         return res.status(200).json(response)
     } catch (error) {
         console.error(error);

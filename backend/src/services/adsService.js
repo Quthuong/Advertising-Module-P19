@@ -96,6 +96,7 @@ let createAdsProduct = (data) => {
 
 let deleteAds = (adsId) => {
     return new Promise( async (resolve, reject) => {
+        console.log(adsId)
         try {
             let advertisement = await db.Advertisement.findOne({
                 where: { id : adsId }
@@ -110,6 +111,9 @@ let deleteAds = (adsId) => {
             // con ham duoi chay duoc vi xoa truc tiep o db
             await db.Advertisement.destroy({
                 where: { id : adsId }
+            })
+            await db.ads_product.destroy({
+                where: { ads_id : adsId }
             })
 
             resolve({
