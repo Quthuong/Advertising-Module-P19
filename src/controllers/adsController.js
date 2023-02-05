@@ -48,10 +48,8 @@ let addAds = (req, res) => {
 
 let createAds = async (req, res) => {
     try {
-        // return console.log(req.file);
         req.body.image = req.file.firebaseUrl;
         let response = await adsService.createAds(req.body);
-
         return res.render('add_product.ejs', {
             ads: response.data
         })
@@ -104,8 +102,9 @@ let editAds = async (req, res) => {
 let updateAds = async (req, res) => {
     try {
         ( req.file !== undefined ) ?
-            ( req.body.image = req.file.firebaseUrl ) : (req.body.image = '');
+        ( req.body.image = req.file.firebaseUrl ) : (req.body.image = '');
         // return console.log(req.file);
+        
         let data = req.body;
         let response = await adsService.updateAds(data);
         return res.status(200).json(response)

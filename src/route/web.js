@@ -2,7 +2,7 @@ import express from "express";
 import adsController from "../controllers/adsController";
 
 var multer = require('multer')
-var upload = multer({ dest: './src/public/uploads/' })
+var upload = multer({ dest: 'https://ltct-sp19-ads.onrender.com/uploads/' })
 
 const Multer = multer({
     storage: multer.memoryStorage(),
@@ -20,7 +20,6 @@ let initWebRoutes = (app) => {
     router.get('/all-ads', adsController.getAllAds);
     router.get('/add-ads', adsController.addAds);    
     router.post('/create-ads', Multer.single('image'), uploadImage , adsController.createAds);
-
     router.post('/create-ads-product', adsController.createAdsProduct);
 
     router.get('/edit-ads', adsController.editAds);
